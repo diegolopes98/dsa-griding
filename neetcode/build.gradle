@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.diegolopes98.dsa.neetcode'
+version = '1.0-SNAPSHOT'
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.15.2'
+    testImplementation('com.github.javafaker:javafaker:1.0.2') { exclude module: 'org.yaml' }
+}
+
+test {
+    useJUnitPlatform()
+}

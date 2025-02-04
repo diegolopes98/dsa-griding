@@ -1,0 +1,5 @@
+rootProject.name = 'dsa-grinding'
+
+include 'ds'
+include 'neetcode'
+include 'leetcode'
