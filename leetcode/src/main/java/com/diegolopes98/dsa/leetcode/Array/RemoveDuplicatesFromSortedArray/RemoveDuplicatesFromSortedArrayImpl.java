@@ -1,4 +1,4 @@
-package com.diegolopes98.dsa.leetcode.Array;
+package com.diegolopes98.dsa.leetcode.Array.RemoveDuplicatesFromSortedArray;
 
 public class RemoveDuplicatesFromSortedArrayImpl implements RemoveDuplicatesFromSortedArray{
     @Override

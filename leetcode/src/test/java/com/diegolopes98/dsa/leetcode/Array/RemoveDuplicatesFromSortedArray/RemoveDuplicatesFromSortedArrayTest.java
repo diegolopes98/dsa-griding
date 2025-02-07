@@ -1,4 +1,4 @@
-package com.diegolopes98.dsa.leetcode.Array;
+package com.diegolopes98.dsa.leetcode.Array.RemoveDuplicatesFromSortedArray;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import java.util.Arrays;
-import java.util.List;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class RemoveDuplicatesFromSortedArrayTest {
