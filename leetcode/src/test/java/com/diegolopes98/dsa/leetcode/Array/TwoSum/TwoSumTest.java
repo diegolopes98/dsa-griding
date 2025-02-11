@@ -1,23 +1,26 @@
 package com.diegolopes98.dsa.leetcode.Array.TwoSum;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-@TestInstance(Lifecycle.PER_CLASS)
+import java.util.stream.Stream;
+
 public class TwoSumTest {
 
-    private TwoSum solution;
-
-    @BeforeAll
-    void setup() {
-        solution = new TwoSumHashMapTwoPassImpl();
+    static Stream<Arguments> provideImplementations() {
+        return Stream.of(
+                Arguments.of(new TwoSumHashMapTwoPassImpl()),
+                Arguments.of(new TwoSumHashMapOnePassImpl())
+        );
     }
 
-    @Test
-    void givenAnArrayWithNumbersMatchingTargetSumAtBeginning_whenCallingTwoSum_shouldReturnNumbersIndexes() {
+    @ParameterizedTest
+    @MethodSource("provideImplementations")
+    void givenAnArrayWithNumbersMatchingTargetSumAtBeginning_whenCallingTwoSum_shouldReturnNumbersIndexes(
+            TwoSum solution
+    ) {
         final var givenNumbers = new int[]{-1, 0, 1, 2, 3, 4, 5};
         final var givenTarget = -1;
         final var expectedOutput = new int[]{0, 1};
@@ -28,8 +31,11 @@ public class TwoSumTest {
     }
 
 
-    @Test
-    void givenAnArrayWithNumbersMatchingTargetSumAtEnd_whenCallingTwoSum_shouldReturnNumbersIndexes() {
+    @ParameterizedTest
+    @MethodSource("provideImplementations")
+    void givenAnArrayWithNumbersMatchingTargetSumAtEnd_whenCallingTwoSum_shouldReturnNumbersIndexes(
+            TwoSum solution
+    ) {
         final var givenNumbers = new int[]{-1, 0, 1, 2, 3, 4, 5};
         final var givenTarget = 9;
         final var expectedOutput = new int[]{5, 6};
@@ -39,8 +45,11 @@ public class TwoSumTest {
         Assertions.assertArrayEquals(expectedOutput, actualOutput);
     }
 
-    @Test
-    void givenAnArrayWithNumbersMatchingTargetSumAtMiddle_whenCallingTwoSum_shouldReturnNumbersIndexes() {
+    @ParameterizedTest
+    @MethodSource("provideImplementations")
+    void givenAnArrayWithNumbersMatchingTargetSumAtMiddle_whenCallingTwoSum_shouldReturnNumbersIndexes(
+            TwoSum solution
+    ) {
         final var givenNumbers = new int[]{-1, 2, 3, 5};
         final var givenTarget = 5;
         final var expectedOutput = new int[]{1, 2};
@@ -50,8 +59,11 @@ public class TwoSumTest {
         Assertions.assertArrayEquals(expectedOutput, actualOutput);
     }
 
-    @Test
-    void givenAnArrayWithNumbersMatchingTargetSumAtBorders_whenCallingTwoSum_shouldReturnNumbersIndexes() {
+    @ParameterizedTest
+    @MethodSource("provideImplementations")
+    void givenAnArrayWithNumbersMatchingTargetSumAtBorders_whenCallingTwoSum_shouldReturnNumbersIndexes(
+            TwoSum solution
+    ) {
         final var givenNumbers = new int[]{-1, 0, 1, 2, 3, 4, -1};
         final var givenTarget = -2;
         final var expectedOutput = new int[]{0, 6};
